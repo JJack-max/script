@@ -1,0 +1,10 @@
+{
+    "name": "rust-container",
+    "image": "solana-env",
+    "settings": {
+        "rust-analyzer.path": "/root/.cargo/bin/rust-analyzer"
+    },
+    "extensions": [
+        "rust-lang.rust-analyzer"
+    ]
+}

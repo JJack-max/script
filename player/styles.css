@@ -1,0 +1,198 @@
+/* TikTok Style Video Player */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.video-feed {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.video-item {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center;
+    position: relative;
+    background-color: #000;
+}
+
+.video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    /* Show pointer cursor to indicate clickability */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    pointer-events: none;
+}
+
+.video-info {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 50px;
+}
+
+.video-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff0000, #ff6a00);
+    margin-right: 15px;
+    border: 2px solid #fff;
+}
+
+.author-name {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.video-description {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.music-info {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.music-icon {
+    margin-right: 10px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.actions {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 50px;
+}
+
+.action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.action-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.action-count {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff0000, #ff6a00);
+    border: 2px solid #fff;
+    margin-top: 10px;
+}
+
+/* Hide scrollbar for mobile */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .video-info {
+        padding-bottom: 30px;
+    }
+
+    .author-name {
+        font-size: 16px;
+    }
+
+    .video-description {
+        font-size: 14px;
+    }
+
+    .actions {
+        padding-bottom: 30px;
+    }
+
+    .action-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .action-count {
+        font-size: 12px;
+    }
+
+    .author-avatar,
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+}

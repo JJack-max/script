@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  rancher:
+    image: rancher/rancher
+    container_name: rancher
+    restart: unless-stopped
+    privileged: true
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - /opt/rancher:/var/lib/rancher
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro

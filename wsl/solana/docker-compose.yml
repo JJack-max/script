@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  solana-dev:
+    container_name: solana-dev
+    image: docker.io/jjack888/solana-env
+    tty: true
+    stdin_open: true
+
+    # ✅ 正常端口映射：可以从 Windows 主机直接访问 localhost:8899 / 3000 等
+    ports:
+      - "8899:8899" # Solana JSON RPC
+      - "8900:8900" # Solana websocket
+      - "3000:3000" # Next.js or web UI
+      - "2222:22" # SSH
+
+    volumes:
+      - rust-cargo:/root/.cargo
+      - rust-rustup:/root/.rustup
+      - pnpm-store:/root/.local/share/pnpm
+      - maven-repo:/root/.m2
+      - nuget-store:/root/.nuget
+      - solana-config:/root/.solana
+      - /mnt/c/Users/zhengchang.wang:/workspace # Windows 共享目录
+
+    environment:
+      - RUSTUP_HOME=/root/.rustup
+      - CARGO_HOME=/root/.cargo
+      - PNPM_HOME=/root/.local/share/pnpm
+      - PATH=/root/.cargo/bin:/root/.local/share/pnpm:/root/.local/share/pnpm/global/7/node_modules/.bin:/root/.local/share/solana/install/active_release/bin:/usr/local/go/bin:/usr/share/dotnet:/usr/lib/jvm/java-21-openjdk-amd64/bin:$PATH
+
+    command: /bin/bash -c "echo 'root:solana123' | chpasswd && /usr/sbin/sshd && exec /bin/bash"
+    restart: unless-stopped
+    privileged: true
+    networks:
+      - solana-net
+
+volumes:
+  rust-cargo:
+  rust-rustup:
+  pnpm-store:
+  maven-repo:
+  nuget-store:
+  solana-config:
+
+networks:
+  solana-net:
+    driver: bridge

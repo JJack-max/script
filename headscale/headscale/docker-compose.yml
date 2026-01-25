@@ -1,0 +1,17 @@
+services:
+  headscale:
+    image: headscale/headscale
+    restart: unless-stopped
+    container_name: headscale
+    ports:
+      - "0.0.0.0:8080:8080"
+      - "0.0.0.0:9090:9090"
+    volumes:
+      # Please set . to the absolute path
+      # of the previously created headscale directory.
+      - ./config:/etc/headscale
+      - ./lib:/var/lib/headscale
+      - ./run:/var/run/headscale
+    command: serve
+    healthcheck:
+      test: ["CMD", "headscale", "health"]

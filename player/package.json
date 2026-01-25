@@ -1,0 +1,23 @@
+{
+    "name": "tiktok-video-player-pwa",
+    "version": "1.0.0",
+    "description": "A TikTok-style video player implemented as a Progressive Web App",
+    "main": "index.html",
+    "scripts": {
+        "start": "vite",
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "keywords": [
+        "pwa",
+        "video-player",
+        "tiktok",
+        "mobile"
+    ],
+    "author": "Bob",
+    "license": "MIT",
+    "devDependencies": {
+        "vite": "^4.0.0"
+    }
+}

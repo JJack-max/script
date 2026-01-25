@@ -1,0 +1,21 @@
+services:
+  fvm:
+    image: leoafarias/fvm:4.0.4
+    container_name: fvm
+    working_dir: /workspace
+    volumes:
+      # Fixed the Windows path mapping for WSL Docker
+      - /c/Users/zhengchang.wang:/workspace
+      - fvm_cache:/root/.pub-cache
+      - fvm_versions:/root/.fvm
+    ports:
+      - "3000:3000"  # 宿主机3000映射到容器3000
+    entrypoint: []
+    command:
+      - bash
+      - -c
+      - |
+        dart pub global activate fvm && export PATH="$$PATH:/root/.pub-cache/bin" && tail -f /dev/null
+volumes:
+  fvm_cache:
+  fvm_versions:

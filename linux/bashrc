@@ -1,0 +1,42 @@
+function search() {
+    mode="all"
+    keyword=""
+
+    if [[ "$1" == "-f" ]]; then
+        mode="file"
+        keyword="$2"
+    elif [[ "$1" == "-c" ]]; then
+        mode="content"
+        keyword="$2"
+    else
+        keyword="$1"
+    fi
+
+    if [[ -z "$keyword" ]]; then
+        echo "Usage:"
+        echo "  search <keyword>       # Search filenames and contents"
+        echo "  search -f <keyword>    # Search filenames only"
+        echo "  search -c <keyword>    # Search contents only"
+        return 1
+    fi
+
+    if [[ "$mode" != "content" ]]; then
+        echo -e "\n🔍 Matching filenames (fd):"
+        if command -v fdfind &> /dev/null; then
+            fdfind -i "$keyword"
+        elif command -v fd &> /dev/null; then
+            fd -i "$keyword"
+        else
+            echo "❌ fd/fdfind not found"
+        fi
+    fi
+
+    if [[ "$mode" != "file" ]]; then
+        echo -e "\n📄 Matching content (rg):"
+        if command -v rg &> /dev/null; then
+            rg -i --color=always -n "$keyword"
+        else
+            echo "❌ ripgrep (rg) not found"
+        fi
+    fi
+}

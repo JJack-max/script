@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  flutter:
+    image: my-flutter:stable
+    container_name: flutter_test
+    ports:
+      - "2222:22"
+      - "8888:8080"
+    volumes:
+      - flutter_packages:/root/.pub-cache
+      - .:/app
+
+volumes:
+  flutter_packages:

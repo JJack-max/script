@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+set -e
+
+LANGUAGE=$1
+shift
+CMD="$@"
+
+if [ -z "$LANGUAGE" ] || [ -z "$CMD" ]; then
+  echo "用法: dev <语言> \"<命令>\""
+  echo "支持语言: python, node, rust, go, dotnet"
+  exit 1
+fi
+
+case "$LANGUAGE" in
+  python)
+    IMAGE="python-selenium:latest"
+    CACHE_VOL="devcache_python"
+    CACHE_PATH="/root/.cache/pip"
+    INSTALL_CMD=""
+    if [ -f "requirements.txt" ]; then
+      INSTALL_CMD="pip install -r requirements.txt"
+    elif [ -f "pyproject.toml" ]; then
+      INSTALL_CMD="pip install ."
+    fi
+    ;;
+  node)
+    IMAGE="node:20"
+    CACHE_VOL="devcache_node"
+    CACHE_PATH="/root/.npm"
+    if [ -f "package.json" ]; then
+      INSTALL_CMD="npm install"
+    fi
+    ;;
+  rust)
+    IMAGE="rust:1.81"
+    CACHE_VOL="devcache_rust"
+    CACHE_PATH="/usr/local/cargo/registry"
+    if [ -f "Cargo.toml" ]; then
+      INSTALL_CMD="cargo fetch"
+    fi
+    ;;
+  go)
+    IMAGE="golang:1.23"
+    CACHE_VOL="devcache_go"
+    CACHE_PATH="/go/pkg/mod"
+    if [ -f "go.mod" ]; then
+      INSTALL_CMD="go mod download"
+    fi
+    ;;
+  dotnet)
+    IMAGE="mcr.microsoft.com/dotnet/sdk:8.0"
+    CACHE_VOL="devcache_dotnet"
+    CACHE_PATH="/root/.nuget/packages"
+    # 查找 .csproj 或 .sln
+    PROJECT_FILE=$(ls *.csproj *.sln 2>/dev/null | head -n 1 || true)
+    if [ -n "$PROJECT_FILE" ]; then
+      INSTALL_CMD="dotnet restore $PROJECT_FILE"
+    fi
+    ;;
+  *)
+    echo "❌ 不支持的语言: $LANGUAGE"
+    exit 1
+    ;;
+esac
+
+# 创建 Volume（如未存在）
+if ! docker volume exists "$CACHE_VOL" >/dev/null 2>&1; then
+  echo "📦 创建依赖缓存卷: $CACHE_VOL"
+  docker volume create "$CACHE_VOL" >/dev/null
+fi
+
+echo "🚀 使用镜像: $IMAGE"
+echo "📁 当前目录: $(pwd)"
+echo "🧰 执行命令: $CMD"
+
+RUN_CMD="set -e; "
+if [ -n "$INSTALL_CMD" ]; then
+  RUN_CMD+="$INSTALL_CMD && "
+fi
+RUN_CMD+="$CMD"
+
+docker run --rm -it \
+  -v "$(pwd)":/app \
+  -v "$CACHE_VOL":"$CACHE_PATH" \
+  -w /app \
+  "$IMAGE" bash -c "$RUN_CMD"

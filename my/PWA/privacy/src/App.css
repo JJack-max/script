@@ -1,0 +1,136 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #646cff, #535bf2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .form-group input,
+  .form-group textarea {
+    background-color: #1a1a1a;
+    border-color: #333;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+
+.result-box {
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .result-box {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+  }
+}
+
+.result-box pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.result-box label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(100, 108, 255, 0.1);
+  border: 1px solid #646cff;
+  color: #646cff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.app-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 2em;
+  }
+}

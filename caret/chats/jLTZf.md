@@ -1,0 +1,13 @@
+```xml
+        <root>
+		<metadata>
+<id>jLTZf</id>
+</metadata>
+		<conversation>
+<message>
+                    <role>user</role>
+                    <content>生成一个文档，关于养生</content>
+                </message><message>
+                    <role>assistant</role>
+                    <content></content>
+                </message></conversation></root>```

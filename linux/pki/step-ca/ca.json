@@ -1,0 +1,51 @@
+{
+  "root": "/root/.step/certs/root_ca.crt",
+  "federatedRoots": null,
+  "crt": "/root/.step/certs/intermediate_ca.crt",
+  "key": "/root/.step/secrets/intermediate_ca_key",
+  "address": ":8443",
+  "insecureAddress": "",
+  "dnsNames": ["www.ca.com"],
+  "logger": { "format": "text" },
+  "db": {
+    "type": "badgerv2",
+    "dataSource": "/root/.step/db",
+    "badgerFileLoadingMode": ""
+  },
+  "authority": {
+    "provisioners": [
+      {
+        "type": "JWK",
+        "name": "admin@ca.com",
+        "key": {
+          "use": "sig",
+          "kty": "EC",
+          "kid": "_IwuosK79pMy3YMs_MxvSY9Jpoyt0H7Ms8EBJPQJ8Co",
+          "crv": "P-256",
+          "alg": "ES256",
+          "x": "0ltKP_fEEuS7OTbzX9WZT3sfuCht1ALj9WmjxJHgHI4",
+          "y": "xm-SM_2KtbxHBIJJHGJV8wWlBUpC2RgWY7AxMRGtgks"
+        },
+        "encryptedKey": "eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLCJwMmMiOjYwMDAwMCwicDJzIjoiTHlIcEEtOGlTR2tvTVBEUXVIdGp4dyJ9.LgPSAIeLIMMS6rrBzULUBX3pGs1MdVK0WvJ62Qu88du1Y0X_mYcN8A.n215WUoPfihU9SVJ.Rpp83zEKz5YIeAVii44VGwa-HK2FFxvPcwxxMzfA_QKkczqpIM3PrswYtaOaEYKN1LzRCTao_Qho4wk8WGjB2grXimS_BpKMpFyy9gcs2yalIXk-JUSKxpMDKk-y2J83j_AfEC15vpiAPI78y3Rpd3DX-vfNm-NfZ19xLlpntpmDR_4Bh9PV1Zbwrs7vHaFnCZYZO5cSviAvWOehEbGcvs9VlDhSdrlCOjnuQHoZR9mrLtWtq-5wp-Yg7tnmo9jytwLQjP7aZVhUFUfSxu36gAw4jO30lrorLInAMYIp1mWvM7RKh75Yfrbdv8dvwUjomfRb7z4DNFN0IA5cUz4.w6bcM3qaAt3p9C8U3PXmaA"
+      },
+      {
+        "type": "ACME",
+        "name": "acme",
+        "claims": {
+          "maxTLSCertDuration": "8760h",
+          "domains": ["*.*"],
+          "disableRenewal": false
+        }
+      }
+    ]
+  },
+  "tls": {
+    "cipherSuites": [
+      "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
+      "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+    ],
+    "minVersion": 1.2,
+    "maxVersion": 1.3,
+    "renegotiation": false
+  }
+}

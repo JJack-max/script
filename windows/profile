@@ -1,0 +1,55 @@
+# =============================
+# PowerShell $PROFILE
+# =============================
+
+# UTF-8 输出编码
+$OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+# -----------------------------
+# 自动加载自定义函数
+# -----------------------------
+$FunctionFolder = "$HOME\script\windows\pwsh"
+
+if (Test-Path $FunctionFolder) {
+    Get-ChildItem $FunctionFolder -Recurse -Filter "*.ps1" | ForEach-Object {
+        try {
+            . $_.FullName
+        } catch {
+            Write-Host "❌ 加载失败: $($_.FullName)" -ForegroundColor Red
+        }
+    }
+} else {
+    Write-Host "⚠️ 路径不存在: $FunctionFolder" -ForegroundColor Yellow
+}
+
+
+# -----------------------------
+# PSReadLine 配置
+# -----------------------------
+Import-Module PSReadLine
+Set-PSReadLineOption -PredictionSource History -PredictionViewStyle ListView
+
+# -----------------------------
+# oh-my-posh 初始化（可选）
+# -----------------------------
+if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+    oh-my-posh init pwsh --config "$HOME\script\windows\themes\avit.omp.json" | Invoke-Expression
+}
+
+# -----------------------------
+# 自动清理重复历史（可选）
+# -----------------------------
+$CleanHistoryScript = "$HOME\script\windows\Clean-DuplicateHistory.ps1"
+if (Test-Path $CleanHistoryScript) { . $CleanHistoryScript }
+
+# -----------------------------
+# 常用别名示例
+# -----------------------------
+Set-Alias ll Get-ChildItem
+Set-Alias rsync "$HOME\script\windows\rsync.ps1"
+Set-Alias pwm "$HOME\script\gopass\pwm.ps1"
+Set-Alias json "$HOME\script\windows\json\json.ps1"
+Set-Alias merge_elastic_p12 "$HOME\script\windows\p12\merge_elastic_p12.ps1"
+Set-Alias paypay_p12_change_pw "$HOME\script\windows\p12\paypay_p12_change_pw.ps1"
+

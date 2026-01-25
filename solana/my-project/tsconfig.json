@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": [
+      "es2020",
+      "dom"
+    ], // ✅ 新增：console、setTimeout 等全局对象
+    "types": [
+      "node",
+      "mocha",
+      "chai"
+    ], // ✅ 新增 node 类型
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": [
+    "tests/**/*.ts",
+    "programs/**/*.ts"
+  ]
+}
