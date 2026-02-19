@@ -6,7 +6,7 @@
   "address": ":9000",
   "insecureAddress": "",
   "dnsNames": [
-    "localhost", "step-ca.intra"
+    "localhost", "stepca.home"
   ],
   "logger": {
     "format": "text"

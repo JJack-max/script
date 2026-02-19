@@ -1,16 +1,15 @@
-test.user-service.com {
-
-    root * /root/hadoop-3.4.1/share/doc/hadoop
-    file_server browse
-
-    tls {
-        ca https://www.ca.com:8443/acme/acme/directory
-        ca_root /etc/caddy/root_ca.crt
-    }
-
-    log {
-        output file /var/log/caddy/kafka-site-docs.log
-        format json
-    }
+{
+    acme_ca https://stepca.home:9000/acme/acme/directory
+    acme_ca_root /etc/caddy/step-root-ca.crt
 }
 
+app.home {
+    tls {
+        client_auth {
+            mode require_and_verify
+            trusted_ca_cert_file /etc/caddy/step-root-ca.crt
+        }
+    }
+
+    respond "Hello from step-ca + Caddy 🎉"
+}

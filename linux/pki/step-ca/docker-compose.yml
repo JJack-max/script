@@ -4,9 +4,16 @@ services:
     container_name: step-ca
     restart: unless-stopped
 
-    ports:
-      - "9000:9000"
-
     volumes:
       - ./step:/home/step
 
+    networks:
+      my-net:
+        ipv4_address: 172.30.0.4
+
+    dns:
+      - 172.30.0.3
+
+networks:
+  my-net:
+    external: true

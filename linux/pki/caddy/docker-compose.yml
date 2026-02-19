@@ -3,9 +3,6 @@ services:
     image: caddy:2.8
     container_name: caddy
     restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./data:/data
@@ -13,6 +10,15 @@ services:
       - ./step-root-ca.crt:/etc/caddy/step-root-ca.crt:ro
     environment:
       - SSL_CERT_FILE=/etc/caddy/step-root-ca.crt
-    extra_hosts:
-      - "step-ca.intra:172.23.172.35"   # step-ca宿主机IP
+    networks:
+      my-net:
+        ipv4_address: 172.30.0.5
+    dns:
+      - 172.30.0.3   # 指向 recursor
 
+volumes:
+  pdns-data:
+
+networks:
+  my-net:
+    external: true

@@ -1,9 +1,0 @@
-{
-	"sans": [
-		"www.app.intra"
-	],
-	"issuer_data": {
-		"url": "https://step-ca.intra:9000/acme/acme/certificate/AF8mPul8NagKNZOdSpCjYtw576EP7iIT",
-		"ca": "https://step-ca.intra:9000/acme/acme/directory"
-	}
-}

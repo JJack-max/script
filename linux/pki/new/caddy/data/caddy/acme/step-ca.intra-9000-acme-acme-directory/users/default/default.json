@@ -1,6 +1,0 @@
-{
-	"status": "valid",
-	"termsOfServiceAgreed": true,
-	"orders": "https://step-ca.intra:9000/acme/acme/account/BJXP9FrNV89AEWF8FDC4bdxzSyYoNvnD/orders",
-	"location": "https://step-ca.intra:9000/acme/acme/account/BJXP9FrNV89AEWF8FDC4bdxzSyYoNvnD"
-}
