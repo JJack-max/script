@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>静态网站 on My New Hugo Project</title>
+    <link>http://172.30.0.11:1313/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
+    <description>Recent content in 静态网站 on My New Hugo Project</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://172.30.0.11:1313/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>静态网站生成器比较</title>
+      <link>http://172.30.0.11:1313/posts/static-site-comparison/</link>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://172.30.0.11:1313/posts/static-site-comparison/</guid>
+      <description>&lt;h1 id=&#34;静态网站生成器比较&#34;&gt;静态网站生成器比较&lt;/h1&gt;&#xA;&lt;p&gt;在选择静态网站生成器时，有许多选项可供选择。让我们比较几个流行的选项。&lt;/p&gt;&#xA;&lt;h2 id=&#34;hugo-vs-jekyll&#34;&gt;Hugo vs Jekyll&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;特性&lt;/th&gt;&#xA;          &lt;th&gt;Hugo&lt;/th&gt;&#xA;          &lt;th&gt;Jekyll&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;语言&lt;/td&gt;&#xA;          &lt;td&gt;Go&lt;/td&gt;&#xA;          &lt;td&gt;Ruby&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;速度&lt;/td&gt;&#xA;          &lt;td&gt;非常快&lt;/td&gt;&#xA;          &lt;td&gt;中等&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;依赖&lt;/td&gt;&#xA;          &lt;td&gt;无&lt;/td&gt;&#xA;          &lt;td&gt;需要Ruby&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;配置&lt;/td&gt;&#xA;          &lt;td&gt;TOML/JSON&lt;/td&gt;&#xA;          &lt;td&gt;YAML&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;hugo-vs-hexo&#34;&gt;Hugo vs Hexo&lt;/h2&gt;&#xA;&lt;p&gt;Hugo和Hexo都是优秀的选择，但各有优势：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo&lt;/strong&gt; - 更快，配置更灵活&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hexo&lt;/strong&gt; - 对JavaScript开发者更友好&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;选择建议&#34;&gt;选择建议&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;如果你需要速度和简洁性，选择Hugo&lt;/li&gt;&#xA;&lt;li&gt;如果你是Ruby开发者，选择Jekyll&lt;/li&gt;&#xA;&lt;li&gt;如果你熟悉Node.js，选择Hexo&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;每个工具都是很好的选择，关键是找到最适合你的。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

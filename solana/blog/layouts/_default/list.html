@@ -1,0 +1,77 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+<div class="posts-list">
+    {{ range .Pages }}
+    <article class="post-item">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p class="post-meta">
+            📅 {{ .Date.Format "2006-01-02" }}
+            {{ if .Params.tags }}
+            |
+            {{ range .Params.tags }}
+            <span class="tag">#{{ . }}</span>
+            {{ end }}
+            {{ end }}
+        </p>
+        <p class="post-description">{{ .Description }}</p>
+        <a href="{{ .Permalink }}" class="read-more">阅读全文 →</a>
+    </article>
+    {{ end }}
+</div>
+
+<style>
+    .posts-list {
+        margin-top: 2rem;
+    }
+
+    .post-item {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .post-item:last-child {
+        border-bottom: none;
+    }
+
+    .post-item h2 {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .post-item h2 a {
+        color: #2c3e50;
+    }
+
+    .post-item h2 a:hover {
+        color: #0066cc;
+    }
+
+    .post-meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tag {
+        background-color: #f0f0f0;
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        margin-right: 0.3rem;
+    }
+
+    .post-description {
+        color: #555;
+    }
+
+    .read-more {
+        color: #0066cc;
+        font-weight: bold;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+</style>
+{{ end }}
