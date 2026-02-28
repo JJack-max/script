@@ -164,23 +164,24 @@
     <main>
         <section class="content">
             
-<article class="post">
-    <h1>Hugo入门指南</h1>
+<div class="post-container">
+    <article class="post">
+        <h1>Hugo入门指南</h1>
 
-    <div class="post-meta">
-        📅 2026-02-26
-        
-        |
-        
-        <span class="tag">#Hugo</span>
-        
-        <span class="tag">#教程</span>
-        
-        
-    </div>
+        <div class="post-meta">
+            📅 2026-02-26
+            
+            |
+            
+            <span class="tag">#Hugo</span>
+            
+            <span class="tag">#教程</span>
+            
+            
+        </div>
 
-    <div class="post-content">
-        <h1 id="hugo-入门指南">Hugo 入门指南</h1>
+        <div class="post-content">
+            <h1 id="hugo-入门指南">Hugo 入门指南</h1>
 <p>Hugo是一个用Go语言编写的快速静态网站生成器，非常适合构建博客、文档网站等。</p>
 <h2 id="为什么选择hugo">为什么选择Hugo？</h2>
 <ol>
@@ -203,10 +204,67 @@
 </ul>
 <p>开始你的Hugo之旅吧！</p>
 
-    </div>
-</article>
+        </div>
+    </article>
+
+    
+    <aside class="toc">
+        <h2>In this article</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#为什么选择hugo">为什么选择Hugo？</a></li>
+    <li><a href="#基本命令">基本命令</a></li>
+    <li><a href="#项目结构">项目结构</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+</div>
 
 <style>
+    .post-container {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .post {
+        flex: 3;
+    }
+
+    .toc {
+        flex: 1;
+        position: sticky;
+        top: 2rem;
+        align-self: flex-start;
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 4px;
+    }
+
+    .toc h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .toc ul {
+        padding-left: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .toc li {
+        margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .toc a:hover {
+        text-decoration: underline;
+    }
+
     .post h1 {
         margin-bottom: 1rem;
     }

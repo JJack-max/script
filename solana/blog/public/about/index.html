@@ -164,16 +164,17 @@
     <main>
         <section class="content">
             
-<article class="post">
-    <h1>关于我</h1>
+<div class="post-container">
+    <article class="post">
+        <h1>关于我</h1>
 
-    <div class="post-meta">
-        📅 0001-01-01
-        
-    </div>
+        <div class="post-meta">
+            📅 0001-01-01
+            
+        </div>
 
-    <div class="post-content">
-        <h1 id="关于我">关于我</h1>
+        <div class="post-content">
+            <h1 id="关于我">关于我</h1>
 <p>这是一个个人博客，分享我在学习和工作中的经验和心得。</p>
 <h2 id="兴趣">兴趣</h2>
 <ul>
@@ -183,10 +184,65 @@
 </ul>
 <p>感谢您的访问！</p>
 
-    </div>
-</article>
+        </div>
+    </article>
+
+    
+    <aside class="toc">
+        <h2>In this article</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#兴趣">兴趣</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+</div>
 
 <style>
+    .post-container {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .post {
+        flex: 3;
+    }
+
+    .toc {
+        flex: 1;
+        position: sticky;
+        top: 2rem;
+        align-self: flex-start;
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 4px;
+    }
+
+    .toc h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .toc ul {
+        padding-left: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .toc li {
+        margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .toc a:hover {
+        text-decoration: underline;
+    }
+
     .post h1 {
         margin-bottom: 1rem;
     }

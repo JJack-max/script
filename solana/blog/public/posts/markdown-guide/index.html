@@ -164,23 +164,24 @@
     <main>
         <section class="content">
             
-<article class="post">
-    <h1>Markdown 语法速查表</h1>
+<div class="post-container">
+    <article class="post">
+        <h1>Markdown 语法速查表</h1>
 
-    <div class="post-meta">
-        📅 2026-02-24
-        
-        |
-        
-        <span class="tag">#Markdown</span>
-        
-        <span class="tag">#教程</span>
-        
-        
-    </div>
+        <div class="post-meta">
+            📅 2026-02-24
+            
+            |
+            
+            <span class="tag">#Markdown</span>
+            
+            <span class="tag">#教程</span>
+            
+            
+        </div>
 
-    <div class="post-content">
-        <h1 id="markdown-语法速查表">Markdown 语法速查表</h1>
+        <div class="post-content">
+            <h1 id="markdown-语法速查表">Markdown 语法速查表</h1>
 <p>Markdown是一种轻量级的标记语言，易于学习和使用。</p>
 <h2 id="标题">标题</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># 一级标题
@@ -219,10 +220,70 @@
 </blockquote>
 <p>实践这些语法，轻松掌握Markdown！</p>
 
-    </div>
-</article>
+        </div>
+    </article>
+
+    
+    <aside class="toc">
+        <h2>In this article</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#标题">标题</a></li>
+    <li><a href="#文本格式">文本格式</a></li>
+    <li><a href="#列表">列表</a></li>
+    <li><a href="#代码">代码</a></li>
+    <li><a href="#链接和图片">链接和图片</a></li>
+    <li><a href="#引用">引用</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+</div>
 
 <style>
+    .post-container {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .post {
+        flex: 3;
+    }
+
+    .toc {
+        flex: 1;
+        position: sticky;
+        top: 2rem;
+        align-self: flex-start;
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 4px;
+    }
+
+    .toc h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .toc ul {
+        padding-left: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .toc li {
+        margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .toc a:hover {
+        text-decoration: underline;
+    }
+
     .post h1 {
         margin-bottom: 1rem;
     }
