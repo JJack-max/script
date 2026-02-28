@@ -1,0 +1,9 @@
+{
+	"sans": [
+		"blog.home"
+	],
+	"issuer_data": {
+		"url": "https://stepca.home:9000/acme/acme/certificate/IKzTlYrmRkHY1BqcjMKzWqi7GDflisip",
+		"ca": "https://stepca.home:9000/acme/acme/directory"
+	}
+}

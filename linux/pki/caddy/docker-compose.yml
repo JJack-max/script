@@ -8,13 +8,14 @@ services:
       - ./data:/data
       - ./config:/config
       - ./step-root-ca.crt:/etc/caddy/step-root-ca.crt:ro
+      - /mnt/c/Users/Bob/Downloads/hugoDocs/public:/var/www/public
     environment:
       - SSL_CERT_FILE=/etc/caddy/step-root-ca.crt
     networks:
       my-net:
-        ipv4_address: 172.30.0.5
+        ipv4_address: 172.30.0.6
     dns:
-      - 172.30.0.3   # 指向 recursor
+      - 172.30.0.53 # 指向 recursor
 
 volumes:
   pdns-data:

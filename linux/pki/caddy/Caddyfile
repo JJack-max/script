@@ -3,13 +3,17 @@
     acme_ca_root /etc/caddy/step-root-ca.crt
 }
 
-app.home {
-    tls {
-        client_auth {
-            mode require_and_verify
-            trusted_ca_cert_file /etc/caddy/step-root-ca.crt
-        }
+blog.home {
+
+    root * /var/www/public
+
+    encode gzip zstd
+
+    header {
+        Cache-Control "public, max-age=600"
     }
 
-    respond "Hello from step-ca + Caddy 🎉"
+    try_files {path} {path}/ /index.html
+
+    file_server
 }

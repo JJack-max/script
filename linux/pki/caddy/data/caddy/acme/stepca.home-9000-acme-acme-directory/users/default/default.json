@@ -1,0 +1,6 @@
+{
+	"status": "valid",
+	"termsOfServiceAgreed": true,
+	"orders": "https://stepca.home:9000/acme/acme/account/B70ycI23TiIj1AvOBo6sYExzBhHWjKW0/orders",
+	"location": "https://stepca.home:9000/acme/acme/account/B70ycI23TiIj1AvOBo6sYExzBhHWjKW0"
+}

@@ -4,7 +4,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My New Hugo Project</title>
+    <title>My Blog</title>
     <meta name="description" content="">
     <style>
         * {
@@ -21,7 +21,7 @@
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #ccd7e3;
             color: white;
             padding: 1.5rem 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -142,16 +142,21 @@
 
 <body>
     <header>
-        <h1>My New Hugo Project</h1>
         <nav>
             
             <a href="/">Home</a>
             <a href="/posts/">Posts</a>
             
             <div id="pagefind" style="display:inline; margin-left:1rem;">
-                <input type="search" id="pagefind-input" placeholder="搜索..." aria-label="搜索" />
-                <button id="pagefind-button" aria-label="提交搜索" title="搜索"
-                    style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;vertical-align:middle;">🔍</button>
+                <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+                <script src="/pagefind/pagefind-ui.js"></script>
+
+                <div id="search"></div>
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        new PagefindUI({ element: "#search", showSubResults: true });
+                    });
+                </script>
             </div>
         </nav>
     </header>
@@ -267,52 +272,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 My New Hugo Project. All rights reserved.</p>
+        <p>&copy; 2026 My Blog. All rights reserved.</p>
     </footer>
 
-    
-    <script src="/pagefind/pagefind.js"></script>
-    <script>
-        
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof pagefind !== 'undefined' && typeof pagefind.init === 'function') {
-                pagefind.init({
-                    inputSelector: "#pagefind-input",
-                    resultsElement: "#pagefind-results",
-                    highlightMatches: true,
-                    
-                    
-                    languages: ["en", "zh"],
-                });
-            }
-
-            var btn = document.getElementById('pagefind-button');
-            var inp = document.getElementById('pagefind-input');
-            function runSearch() {
-                var val = inp.value.trim();
-                if (val && typeof pagefind !== 'undefined' &&
-                    typeof pagefind.search === 'function') {
-                    pagefind.search(val);
-                }
-            }
-
-            if (btn && inp) {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    runSearch();
-                    inp.focus();
-                });
-
-                inp.addEventListener('keydown', function (e) {
-                    if (e.key === 'Enter' || e.keyCode === 13) {
-                        e.preventDefault();
-                        runSearch();
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>

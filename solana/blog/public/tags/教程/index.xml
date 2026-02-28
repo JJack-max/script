@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>教程 on My New Hugo Project</title>
-    <link>http://172.30.0.11:1313/tags/%E6%95%99%E7%A8%8B/</link>
-    <description>Recent content in 教程 on My New Hugo Project</description>
+    <title>教程 on My Blog</title>
+    <link>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</link>
+    <description>Recent content in 教程 on My Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://172.30.0.11:1313/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo入门指南</title>
-      <link>http://172.30.0.11:1313/posts/hugo-guide/</link>
+      <link>http://localhost:1313/posts/hugo-guide/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://172.30.0.11:1313/posts/hugo-guide/</guid>
+      <guid>http://localhost:1313/posts/hugo-guide/</guid>
       <description>&lt;h1 id=&#34;hugo-入门指南&#34;&gt;Hugo 入门指南&lt;/h1&gt;&#xA;&lt;p&gt;Hugo是一个用Go语言编写的快速静态网站生成器，非常适合构建博客、文档网站等。&lt;/p&gt;&#xA;&lt;h2 id=&#34;为什么选择hugo&#34;&gt;为什么选择Hugo？&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;速度快&lt;/strong&gt; - 生成速度非常快&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;易于使用&lt;/strong&gt; - 简单的目录结构和配置&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;功能丰富&lt;/strong&gt; - 支持多语言、分类、标签等&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;灵活的模板&lt;/strong&gt; - 强大的模板系统&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;基本命令&#34;&gt;基本命令&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site mysite      &lt;span style=&#34;color:#75715e&#34;&gt;# 创建新网站&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server              &lt;span style=&#34;color:#75715e&#34;&gt;# 启动本地服务器&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo                     &lt;span style=&#34;color:#75715e&#34;&gt;# 生成静态文件&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;项目结构&#34;&gt;项目结构&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;content/&lt;/code&gt; - 站点内容&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;layouts/&lt;/code&gt; - HTML模板&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;static/&lt;/code&gt; - 静态文件&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;themes/&lt;/code&gt; - Hugo主题&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;config.toml&lt;/code&gt; - 站点配置&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;开始你的Hugo之旅吧！&lt;/p&gt;</description>
     </item>
     <item>
       <title>Markdown 语法速查表</title>
-      <link>http://172.30.0.11:1313/posts/markdown-guide/</link>
+      <link>http://localhost:1313/posts/markdown-guide/</link>
       <pubDate>Tue, 24 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://172.30.0.11:1313/posts/markdown-guide/</guid>
+      <guid>http://localhost:1313/posts/markdown-guide/</guid>
       <description>&lt;h1 id=&#34;markdown-语法速查表&#34;&gt;Markdown 语法速查表&lt;/h1&gt;&#xA;&lt;p&gt;Markdown是一种轻量级的标记语言，易于学习和使用。&lt;/p&gt;&#xA;&lt;h2 id=&#34;标题&#34;&gt;标题&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# 一级标题&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## 二级标题&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### 三级标题&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;文本格式&#34;&gt;文本格式&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;粗体&lt;/strong&gt; - &lt;code&gt;**粗体**&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;斜体&lt;/em&gt; - &lt;code&gt;*斜体*&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;del&gt;删除线&lt;/del&gt; - &lt;code&gt;~~删除线~~&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;列表&#34;&gt;列表&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;无序列表：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;项目1&lt;/li&gt;&#xA;&lt;li&gt;项目2&lt;/li&gt;&#xA;&lt;li&gt;项目3&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;有序列表：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;第一项&lt;/li&gt;&#xA;&lt;li&gt;第二项&lt;/li&gt;&#xA;&lt;li&gt;第三项&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;代码&#34;&gt;代码&lt;/h2&gt;&#xA;&lt;p&gt;行内代码：&lt;code&gt;code&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;代码块：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;():&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;链接和图片&#34;&gt;链接和图片&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://example.com&#34;&gt;链接文本&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;image.jpg&#34; alt=&#34;图片描述&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;引用&#34;&gt;引用&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;这是一个引用块&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;实践这些语法，轻松掌握Markdown！&lt;/p&gt;</description>
     </item>
   </channel>

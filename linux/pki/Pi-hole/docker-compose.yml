@@ -7,8 +7,7 @@ services:
 
     environment:
       TZ: "Asia/Tokyo"
-      WEBPASSWORD: "12345678"   # Web UI 登录密码
-      FTLCONF_LOCAL_IPV4: "172.23.172.35"   # 改成你宿主机的内网 IP
+      WEBPASSWORD: "Huawei_12345678" # Web UI 登录密码
       DNSMASQ_LISTENING: "all"
 
     volumes:
@@ -17,11 +16,11 @@ services:
 
     cap_add:
       - NET_ADMIN
-    
+
     networks:
       my-net:
-        ipv4_address: 172.30.0.3
+        ipv4_address: 172.30.0.53
 
 networks:
   my-net:
-    external: true          
+    external: true

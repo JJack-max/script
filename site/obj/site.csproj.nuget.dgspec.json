@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bob\\script\\site\\site.csproj": {}
+    "c:\\Users\\Bob\\script\\site\\site.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bob\\script\\site\\site.csproj": {
+    "c:\\Users\\Bob\\script\\site\\site.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bob\\script\\site\\site.csproj",
+        "projectUniqueName": "c:\\Users\\Bob\\script\\site\\site.csproj",
         "projectName": "site",
-        "projectPath": "C:\\Users\\Bob\\script\\site\\site.csproj",
+        "projectPath": "c:\\Users\\Bob\\script\\site\\site.csproj",
         "packagesPath": "C:\\Users\\Bob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bob\\script\\site\\obj\\",
+        "outputPath": "c:\\Users\\Bob\\script\\site\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bob\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -54,7 +54,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.23, )",
+              "version": "[8.0.24, )",
               "autoReferenced": true
             },
             "Swashbuckle.AspNetCore": {
@@ -81,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

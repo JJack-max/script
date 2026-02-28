@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on My New Hugo Project</title>
-    <link>http://172.30.0.11:1313/tags/hugo/</link>
-    <description>Recent content in Hugo on My New Hugo Project</description>
+    <title>Hugo on My Blog</title>
+    <link>http://localhost:1313/tags/hugo/</link>
+    <description>Recent content in Hugo on My Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://172.30.0.11:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo入门指南</title>
-      <link>http://172.30.0.11:1313/posts/hugo-guide/</link>
+      <link>http://localhost:1313/posts/hugo-guide/</link>
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://172.30.0.11:1313/posts/hugo-guide/</guid>
+      <guid>http://localhost:1313/posts/hugo-guide/</guid>
       <description>&lt;h1 id=&#34;hugo-入门指南&#34;&gt;Hugo 入门指南&lt;/h1&gt;&#xA;&lt;p&gt;Hugo是一个用Go语言编写的快速静态网站生成器，非常适合构建博客、文档网站等。&lt;/p&gt;&#xA;&lt;h2 id=&#34;为什么选择hugo&#34;&gt;为什么选择Hugo？&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;速度快&lt;/strong&gt; - 生成速度非常快&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;易于使用&lt;/strong&gt; - 简单的目录结构和配置&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;功能丰富&lt;/strong&gt; - 支持多语言、分类、标签等&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;灵活的模板&lt;/strong&gt; - 强大的模板系统&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;基本命令&#34;&gt;基本命令&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site mysite      &lt;span style=&#34;color:#75715e&#34;&gt;# 创建新网站&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server              &lt;span style=&#34;color:#75715e&#34;&gt;# 启动本地服务器&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo                     &lt;span style=&#34;color:#75715e&#34;&gt;# 生成静态文件&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;项目结构&#34;&gt;项目结构&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;content/&lt;/code&gt; - 站点内容&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;layouts/&lt;/code&gt; - HTML模板&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;static/&lt;/code&gt; - 静态文件&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;themes/&lt;/code&gt; - Hugo主题&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;config.toml&lt;/code&gt; - 站点配置&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;开始你的Hugo之旅吧！&lt;/p&gt;</description>
     </item>
   </channel>

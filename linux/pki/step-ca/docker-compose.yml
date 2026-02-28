@@ -12,7 +12,7 @@ services:
         ipv4_address: 172.30.0.4
 
     dns:
-      - 172.30.0.3
+      - 172.30.0.53
 
 networks:
   my-net:

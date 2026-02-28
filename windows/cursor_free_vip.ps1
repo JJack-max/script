@@ -1,1 +1,1 @@
-irm https://raw.githubusercontent.com/yeongpin/cursor-free-vip/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/SHANMUGAM070106/cursor-free-vip/refs/heads/main/scripts/install.ps1  | iex
