@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on My Blog</title>
+    <link>http://localhost:1313/tags/networking/</link>
+    <description>Recent content in Networking on My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Feb 2026 10:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exposing Self-Hosted Services with Cloudflare Tunnel</title>
+      <link>http://localhost:1313/posts/cloudflare-tunnel/</link>
+      <pubDate>Fri, 27 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/cloudflare-tunnel/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Cloudflare Tunnel provides a secure way to connect your local services to the internet without opening up firewall ports or having a public IP address. It creates a secure, outbound-only connection between your service and the Cloudflare network.&lt;/p&gt;&#xA;&lt;p&gt;This guide will walk you through setting up a Cloudflare Tunnel to expose a local web service.&lt;/p&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A Cloudflare account.&lt;/li&gt;&#xA;&lt;li&gt;A domain added to your Cloudflare account.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;cloudflared&lt;/code&gt; daemon installed on your server where the service is running.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;steps-to-create-a-tunnel&#34;&gt;Steps to Create a Tunnel&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Login to Cloudflare:&lt;/strong&gt;&#xA;Authenticate &lt;code&gt;cloudflared&lt;/code&gt; with your Cloudflare account.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

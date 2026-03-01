@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <meta name="description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #ccd7e3;
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+         
+        #pagefind-input {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #pagefind-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left: 0.2rem;
+        }
+
+        #pagefind-button:focus {
+            outline: none;
+        }
+
+        #pagefind-results {
+            margin-top: 2rem;
+        }
+
+        #pagefind-results .pagefind-results-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #pagefind-results .pagefind-result {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        #pagefind-results .pagefind-result a {
+            color: #0066cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #pagefind-results .pagefind-result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            
+            <a href="/">Home</a>
+            <a href="/posts/">Posts</a>
+            
+            <div id="pagefind" style="display:inline; margin-left:1rem;">
+                <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+                <script src="/pagefind/pagefind-ui.js"></script>
+
+                <div id="search"></div>
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        new PagefindUI({ element: "#search", showSubResults: true });
+                    });
+                </script>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content">
+            
+<div class="post-container">
+    <article class="post">
+        <h1>Exposing Self-Hosted Services with Cloudflare Tunnel</h1>
+
+        <div class="post-meta">
+            📅 2026-02-27
+            
+            |
+            
+            <span class="tag">#cloudflare</span>
+            
+            <span class="tag">#tunnel</span>
+            
+            <span class="tag">#networking</span>
+            
+            <span class="tag">#self-hosted</span>
+            
+            
+        </div>
+
+        <div class="post-content">
+            <h2 id="introduction">Introduction</h2>
+<p>Cloudflare Tunnel provides a secure way to connect your local services to the internet without opening up firewall ports or having a public IP address. It creates a secure, outbound-only connection between your service and the Cloudflare network.</p>
+<p>This guide will walk you through setting up a Cloudflare Tunnel to expose a local web service.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A Cloudflare account.</li>
+<li>A domain added to your Cloudflare account.</li>
+<li><code>cloudflared</code> daemon installed on your server where the service is running.</li>
+</ul>
+<h2 id="steps-to-create-a-tunnel">Steps to Create a Tunnel</h2>
+<ol>
+<li>
+<p><strong>Login to Cloudflare:</strong>
+Authenticate <code>cloudflared</code> with your Cloudflare account.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel login
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Create a Tunnel:</strong>
+Give your tunnel a name. For example, <code>my-app</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel create my-app
+</span></span></code></pre></div><p>This will generate a credentials file for the tunnel in your <code>~/.cloudflared/</code> directory.</p>
+</li>
+<li>
+<p><strong>Create a Configuration File:</strong>
+Create a <code>config.yml</code> file for your tunnel. This is where you define the services to be exposed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">tunnel</span>: <span style="color:#ae81ff">my-app</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">credentials-file</span>: <span style="color:#ae81ff">/root/.cloudflared/YOUR_TUNNEL_ID.json</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ingress</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">my-app.your-domain.com</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">service</span>: <span style="color:#ae81ff">http://localhost:8080</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">service</span>: <span style="color:#ae81ff">http_status:404</span>
+</span></span></code></pre></div><p>Replace <code>YOUR_TUNNEL_ID.json</code> with the file from the previous step and <code>my-app.your-domain.com</code> with your desired subdomain.</p>
+</li>
+<li>
+<p><strong>Route DNS for the Tunnel:</strong>
+Tell Cloudflare to route traffic for the new subdomain to your tunnel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel route dns my-app my-app.your-domain.com
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Run the Tunnel:</strong>
+You can run the tunnel as a service to ensure it&rsquo;s always active.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared service install
+</span></span><span style="display:flex;"><span>cloudflared service start
+</span></span></code></pre></div><p>Alternatively, you can run it directly from the command line with your configuration file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cloudflared tunnel --config /path/to/your/config.yml run
+</span></span></code></pre></div></li>
+</ol>
+<p>Your local service is now securely exposed to the internet via Cloudflare Tunnel!</p>
+
+        </div>
+    </article>
+
+    
+    <aside class="toc">
+        <h2>In this article</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#steps-to-create-a-tunnel">Steps to Create a Tunnel</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+</div>
+
+<style>
+    .post-container {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .post {
+        flex: 3;
+    }
+
+    .toc {
+        flex: 1;
+        position: sticky;
+        top: 2rem;
+        align-self: flex-start;
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 4px;
+    }
+
+    .toc h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .toc ul {
+        padding-left: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .toc li {
+        margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .toc a:hover {
+        text-decoration: underline;
+    }
+
+    .post h1 {
+        margin-bottom: 1rem;
+    }
+
+    .post-meta {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tag {
+        background-color: #f0f0f0;
+        padding: 0.3rem 0.6rem;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        margin-right: 0.3rem;
+    }
+
+    .post-content {
+        line-height: 1.8;
+        color: #333;
+    }
+
+    .post-content p {
+        margin: 1rem 0;
+    }
+
+    .post-content h2 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .post-content pre {
+        background-color: #f5f5f5;
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+
+    .post-content code {
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-size: 0.9em;
+    }
+
+    .post-content pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .post-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+    }
+
+    .post-content table th,
+    .post-content table td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .post-content table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .post-content blockquote {
+        border-left: 4px solid #0066cc;
+        padding-left: 1rem;
+        margin-left: 0;
+        color: #666;
+    }
+</style>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

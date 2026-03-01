@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Headscale on My Blog</title>
+    <link>http://localhost:1313/tags/headscale/</link>
+    <description>Recent content in Headscale on My Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Feb 2026 20:10:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/headscale/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Deploy a Self-Hosted Headscale Server</title>
+      <link>http://localhost:1313/posts/deploy-headscale/</link>
+      <pubDate>Fri, 27 Feb 2026 20:10:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/deploy-headscale/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Headscale is an open-source, self-hosted implementation of the Tailscale control server. It allows you to create a secure, private network between your devices, without relying on the public Tailscale service. This guide will walk you through the process of deploying your own Headscale server using Docker and Docker Compose.&lt;/p&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;Before you begin, you will need:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A server with a public IP address (e.g., a VPS from any cloud provider).&lt;/li&gt;&#xA;&lt;li&gt;A domain name pointing to your server&amp;rsquo;s IP address.&lt;/li&gt;&#xA;&lt;li&gt;Docker and Docker Compose installed on your server.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;deployment-using-docker&#34;&gt;Deployment using Docker&lt;/h2&gt;&#xA;&lt;p&gt;We will use Docker Compose to deploy Headscale. Here is a &lt;code&gt;docker-compose.yml&lt;/code&gt; file to get you started:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

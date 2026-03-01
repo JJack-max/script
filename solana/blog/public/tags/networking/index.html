@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <meta name="description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #ccd7e3;
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+         
+        #pagefind-input {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #pagefind-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left: 0.2rem;
+        }
+
+        #pagefind-button:focus {
+            outline: none;
+        }
+
+        #pagefind-results {
+            margin-top: 2rem;
+        }
+
+        #pagefind-results .pagefind-results-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #pagefind-results .pagefind-result {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        #pagefind-results .pagefind-result a {
+            color: #0066cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #pagefind-results .pagefind-result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            
+            <a href="/">Home</a>
+            <a href="/posts/">Posts</a>
+            
+            <div id="pagefind" style="display:inline; margin-left:1rem;">
+                <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+                <script src="/pagefind/pagefind-ui.js"></script>
+
+                <div id="search"></div>
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        new PagefindUI({ element: "#search", showSubResults: true });
+                    });
+                </script>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content">
+            
+<h1>Networking</h1>
+
+<div class="posts-list">
+    
+    <article class="post-item">
+        <h2><a href="http://localhost:1313/posts/cloudflare-tunnel/">Exposing Self-Hosted Services with Cloudflare Tunnel</a></h2>
+        <p class="post-meta">
+            📅 2026-02-27
+            
+            |
+            
+            <span class="tag">#cloudflare</span>
+            
+            <span class="tag">#tunnel</span>
+            
+            <span class="tag">#networking</span>
+            
+            <span class="tag">#self-hosted</span>
+            
+            
+        </p>
+        <p class="post-description"></p>
+        <a href="http://localhost:1313/posts/cloudflare-tunnel/" class="read-more">阅读全文 →</a>
+    </article>
+    
+</div>
+
+<style>
+    .posts-list {
+        margin-top: 2rem;
+    }
+
+    .post-item {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .post-item:last-child {
+        border-bottom: none;
+    }
+
+    .post-item h2 {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .post-item h2 a {
+        color: #2c3e50;
+    }
+
+    .post-item h2 a:hover {
+        color: #0066cc;
+    }
+
+    .post-meta {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tag {
+        background-color: #f0f0f0;
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        margin-right: 0.3rem;
+    }
+
+    .post-description {
+        color: #555;
+    }
+
+    .read-more {
+        color: #0066cc;
+        font-weight: bold;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+</style>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

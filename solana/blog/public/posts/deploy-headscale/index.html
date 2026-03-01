@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <meta name="description" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #ccd7e3;
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+         
+        #pagefind-input {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #pagefind-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-left: 0.2rem;
+        }
+
+        #pagefind-button:focus {
+            outline: none;
+        }
+
+        #pagefind-results {
+            margin-top: 2rem;
+        }
+
+        #pagefind-results .pagefind-results-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #pagefind-results .pagefind-result {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        #pagefind-results .pagefind-result a {
+            color: #0066cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #pagefind-results .pagefind-result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            
+            <a href="/">Home</a>
+            <a href="/posts/">Posts</a>
+            
+            <div id="pagefind" style="display:inline; margin-left:1rem;">
+                <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+                <script src="/pagefind/pagefind-ui.js"></script>
+
+                <div id="search"></div>
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        new PagefindUI({ element: "#search", showSubResults: true });
+                    });
+                </script>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content">
+            
+<div class="post-container">
+    <article class="post">
+        <h1>How to Deploy a Self-Hosted Headscale Server</h1>
+
+        <div class="post-meta">
+            📅 2026-02-27
+            
+            |
+            
+            <span class="tag">#headscale</span>
+            
+            <span class="tag">#tailscale</span>
+            
+            <span class="tag">#docker</span>
+            
+            <span class="tag">#self-hosted</span>
+            
+            
+        </div>
+
+        <div class="post-content">
+            <h2 id="introduction">Introduction</h2>
+<p>Headscale is an open-source, self-hosted implementation of the Tailscale control server. It allows you to create a secure, private network between your devices, without relying on the public Tailscale service. This guide will walk you through the process of deploying your own Headscale server using Docker and Docker Compose.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you begin, you will need:</p>
+<ul>
+<li>A server with a public IP address (e.g., a VPS from any cloud provider).</li>
+<li>A domain name pointing to your server&rsquo;s IP address.</li>
+<li>Docker and Docker Compose installed on your server.</li>
+</ul>
+<h2 id="deployment-using-docker">Deployment using Docker</h2>
+<p>We will use Docker Compose to deploy Headscale. Here is a <code>docker-compose.yml</code> file to get you started:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.7&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">headscale</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">headscale/headscale:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">headscale</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./config:/etc/headscale/</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./data:/var/lib/headscale/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;8080:8080&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cap_add</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">NET_ADMIN</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">SYS_MODULE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">sysctls</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">net.ipv4.ip_forward=1</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">net.ipv6.conf.all.forwarding=1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">caddy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">caddy:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">caddy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;80:80&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;443:443&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./Caddyfile:/etc/caddy/Caddyfile</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">caddy_data:/data</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">caddy_config:/config</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">caddy_data</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">caddy_config</span>:
+</span></span></code></pre></div><h3 id="configuration">Configuration</h3>
+<ol>
+<li>
+<p><strong>Create a <code>config</code> directory and a <code>config.yaml</code> file inside it.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir config
+</span></span><span style="display:flex;"><span>touch config/config.yaml
+</span></span></code></pre></div><p>Here is a basic configuration to get you started. <strong>Make sure to replace <code>your_domain.com</code> with your actual domain name.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">server_url</span>: <span style="color:#ae81ff">https://your_domain.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">listen_addr</span>: <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metrics_listen_addr</span>: <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">9090</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">grpc_listen_addr</span>: <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">50443</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ip_prefixes</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">100.64.0.0</span><span style="color:#ae81ff">/10</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">sqlite3</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db_path</span>: <span style="color:#ae81ff">/var/lib/headscale/db.sqlite</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Create a <code>Caddyfile</code> for the reverse proxy.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch Caddyfile
+</span></span></code></pre></div><p>Add the following content to the <code>Caddyfile</code>. <strong>Again, replace <code>your_domain.com</code> with your domain.</strong></p>
+<pre tabindex="0"><code>your_domain.com {
+    reverse_proxy headscale:8080
+}
+</code></pre></li>
+<li>
+<p><strong>Start the services.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose up -d
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="connecting-clients">Connecting Clients</h2>
+<ol>
+<li>
+<p><strong>Create a user.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose exec headscale headscale users create myuser
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Create a pre-authenticated key.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose exec headscale headscale preauthkeys create --reusable --expiration 24h --user myuser
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Connect a client.</strong></p>
+<p>On your client machine, run the following command, replacing <code>your_domain.com</code> with your domain and <code>&lt;preauth_key&gt;</code> with the key you just generated:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tailscale up --login-server https://your_domain.com --authkey &lt;preauth_key&gt;
+</span></span></code></pre></div></li>
+</ol>
+<p>You have now successfully deployed your own Headscale server!</p>
+
+        </div>
+    </article>
+
+    
+    <aside class="toc">
+        <h2>In this article</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#deployment-using-docker">Deployment using Docker</a>
+      <ul>
+        <li><a href="#configuration">Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#connecting-clients">Connecting Clients</a></li>
+  </ul>
+</nav>
+    </aside>
+    
+</div>
+
+<style>
+    .post-container {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .post {
+        flex: 3;
+    }
+
+    .toc {
+        flex: 1;
+        position: sticky;
+        top: 2rem;
+        align-self: flex-start;
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 4px;
+    }
+
+    .toc h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .toc ul {
+        padding-left: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .toc li {
+        margin-bottom: 0.5rem;
+    }
+
+    .toc a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .toc a:hover {
+        text-decoration: underline;
+    }
+
+    .post h1 {
+        margin-bottom: 1rem;
+    }
+
+    .post-meta {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tag {
+        background-color: #f0f0f0;
+        padding: 0.3rem 0.6rem;
+        border-radius: 3px;
+        font-size: 0.85rem;
+        margin-right: 0.3rem;
+    }
+
+    .post-content {
+        line-height: 1.8;
+        color: #333;
+    }
+
+    .post-content p {
+        margin: 1rem 0;
+    }
+
+    .post-content h2 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .post-content pre {
+        background-color: #f5f5f5;
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+
+    .post-content code {
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-size: 0.9em;
+    }
+
+    .post-content pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .post-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+    }
+
+    .post-content table th,
+    .post-content table td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .post-content table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .post-content blockquote {
+        border-left: 4px solid #0066cc;
+        padding-left: 1rem;
+        margin-left: 0;
+        color: #666;
+    }
+</style>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
